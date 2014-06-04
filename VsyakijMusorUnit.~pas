@@ -1,0 +1,147 @@
+unit VsyakijMusorUnit;
+
+interface
+
+implementation
+
+Function TBattleMokona.GetVseBooli(arg: byte): boolean;
+Begin
+   result:=(power(2,arg) and VseBooli = power(2,arg));
+End;
+
+Procedure TBattleMokona.SetVseBooli(value: boolean; arg: byte);
+Begin
+   if value = true then VseBooli:=VseBooli or power(2,arg)
+   else VseBooli:=VseBooli xor power(2,arg);
+End;
+
+
+Function TBattleMokona.GetIsSpeeding: boolean;
+var Indexator: byte;
+Begin
+   indexator:=power(2,0);
+   if (indexator and VseBooli = indexator) then result:=true else result:=false;
+End;
+
+Function TBattleMokona.GetIsFalling: boolean;
+var Indexator: byte;
+Begin
+   indexator:=power(2,1);
+   if indexator and VseBooli = indexator then result:=true else result:=false;
+End;
+
+Function TBattleMokona.GetIsBremzing: boolean; 
+var Indexator: byte;
+Begin
+   indexator:=power(2,2);
+   if indexator and VseBooli = indexator then result:=true else result:=false;
+End;
+
+Function TBattleMokona.GetIsTurning: boolean; 
+var Indexator: byte;
+Begin
+   indexator:=power(2,3);
+   if indexator and VseBooli = indexator then result:=true else result:=false;
+End;
+
+Function TBattleMokona.GetIsJumping: boolean; 
+var Indexator: byte;
+Begin
+   indexator:=power(2,4);
+   if indexator and VseBooli = indexator then result:=true else result:=false;
+End;
+
+Function TBattleMokona.GetIsDying: boolean; 
+var Indexator: byte;
+Begin
+   indexator:=power(2,5);
+   if indexator and VseBooli = indexator then result:=true else result:=false;
+End;
+
+Function TBattleMokona.GetIsUnderControll: boolean;
+var Indexator: byte;
+Begin
+   indexator:=power(2,6);
+   if indexator and VseBooli = indexator then result:=true else result:=false;
+End;
+
+Function TBattleMokona.GetIsStanding: boolean;
+var Indexator: byte;
+Begin
+   indexator:=power(2,7);
+   if indexator and VseBooli = indexator then result:=true else result:=false;
+End;
+
+Procedure TBattleMokona.SetIsSpeeding(arg: boolean);
+var indexator: byte;
+Begin
+   if arg=true then IsBremzing:=false;
+   indexator:=0;
+   if arg = true then VseBooli:=VseBooli or power(2,indexator)
+   else VseBooli:=VseBooli and not(power(2,indexator));
+End;
+
+Procedure TBattleMokona.SetIsFalling(arg: boolean);
+var indexator: byte;
+Begin
+   if arg=true then MyCurrentFloor:=nil;
+   indexator:=1;
+   if arg = true then VseBooli:=VseBooli or power(2,indexator)
+   else VseBooli:=VseBooli and not(power(2,indexator));
+End;
+
+Procedure TBattleMokona.SetIsBremzing(arg: boolean);
+var indexator: byte;
+Begin
+   indexator:=2;
+   if arg = true then
+     VseBooli:=VseBooli or power(2,indexator)
+   else VseBooli:=VseBooli and not(power(2,indexator));
+End;
+
+Procedure TBattleMokona.SetIsTurning(arg: boolean);
+var indexator: byte;
+Begin
+   indexator:=3;
+   if arg = true then VseBooli:=VseBooli or power(2,indexator)
+   else VseBooli:=VseBooli and not(power(2,indexator));
+End;
+
+Procedure TBattleMokona.SetIsJumping(arg: boolean);
+var indexator: byte;
+Begin
+   if arg=true then IsStanding:=false;
+   indexator:=4;
+   if arg = true then VseBooli:=VseBooli or power(2,indexator)
+   else VseBooli:=VseBooli and not(power(2,indexator));
+End;
+
+Procedure TBattleMokona.SetIsDying(arg: boolean);
+var indexator: byte;
+Begin
+   indexator:=5;
+   if arg = true then VseBooli:=VseBooli or power(2,indexator)
+   else VseBooli:=VseBooli and not(power(2,indexator));
+End;
+
+Procedure TBattleMokona.SetIsUnderControll(arg: boolean);
+var indexator: byte;
+Begin
+   indexator:=6;
+   if arg = true then VseBooli:=VseBooli or power(2,indexator)
+   else VseBooli:=VseBooli and not(power(2,indexator));
+End;
+
+Procedure TBattleMokona.SetIsStanding(arg: boolean);
+var indexator: byte;
+Begin
+   if arg=true then begin
+      g:=0;
+      IsFalling:=false;
+   end;
+   indexator:=7;
+   if arg = true then VseBooli:=VseBooli or power(2,indexator)
+   else VseBooli:=VseBooli and not(power(2,indexator));
+End;
+
+end.

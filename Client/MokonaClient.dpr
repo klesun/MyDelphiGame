@@ -1,0 +1,14 @@
+program MokonaClient;
+
+uses
+  Forms,
+  MoconalCombat in 'MoconalCombat.pas' {Form1},
+  Form2Unit in 'Form2Unit.pas' {Form2};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+end.
