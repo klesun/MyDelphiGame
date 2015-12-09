@@ -10,3 +10,5 @@ Control:
 Left/Right - moving
 Up - jump
 Space - resurrection
+
+![alt tag](mokona.png)
